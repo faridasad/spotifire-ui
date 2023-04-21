@@ -1,9 +1,11 @@
-import './bottombar.scss'
+import "./bottombar.scss";
 
 function Bottombar() {
   return (
-    <div>Bottombar</div>
-  )
+    <footer>
+      <div>Footer</div>
+    </footer>
+  );
 }
 
-export default Bottombar
+export default Bottombar;

@@ -1,3 +1,6 @@
+//Styles
+import "./styles/App.scss";
+
 // Components
 import Navbar from "./components/Navbar";
 import Topbar from "./components/Topbar";
@@ -14,11 +17,15 @@ function App() {
   const Layout = () => {
     return (
       <div className="app">
-        <Navbar />
-        <Topbar />
-        <main>
-          <Outlet />
-        </main>
+        <div className="top">
+          <Navbar />
+          <div className="content">
+            <Topbar />
+            <main>
+              <Outlet />
+            </main>
+          </div>
+        </div>
         <Bottombar />
       </div>
     );

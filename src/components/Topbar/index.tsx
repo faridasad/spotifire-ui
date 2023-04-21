@@ -2,7 +2,10 @@ import './topbar.scss'
 
 function Topbar() {
   return (
-    <div>Topbar</div>
+    <header>
+      <div className="left">Arrows</div>
+      <div className="right">User</div>
+    </header>
   )
 }
 

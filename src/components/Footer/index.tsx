@@ -1,5 +1,6 @@
 import Icon from "../Icons";
 import Player from "./Player";
+import VolumeBar from "./VolumeBar";
 import "./footer.scss";
 
 function Footer() {
@@ -50,6 +51,14 @@ function Footer() {
           <button role="switch">
             <Icon name="queue" size={16} />
           </button>
+          <div className="volume-con">
+            <button role="switch">
+              <Icon name="volume" size={16} />
+            </button>
+            <div className="volume-con__slider">
+              <VolumeBar />
+            </div>
+          </div>
         </div>
       </div>
     </footer>

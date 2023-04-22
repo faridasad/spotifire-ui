@@ -98,7 +98,7 @@ footer {
       }
 
       .audio-player {
-        width: 100%;
+        width: 405px;
       }
     }
 
@@ -106,6 +106,18 @@ footer {
       flex-grow: 2;
       display: flex;
       justify-content: flex-end;
+      align-items: center;
+      gap: 1rem;
+
+      .volume-con {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+
+        &__slider {
+          width: 93px;
+        }
+      }
     }
   }
 }

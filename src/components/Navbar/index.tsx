@@ -65,6 +65,30 @@ function Navbar() {
             <li>
               <span>Playlist 4</span>
             </li>
+            <li>
+              <span>Playlist 1</span>
+            </li>
+            <li>
+              <span>Playlist 2</span>
+            </li>
+            <li>
+              <span>Playlist 3</span>
+            </li>
+            <li>
+              <span>Playlist 4</span>
+            </li>
+            <li>
+              <span>Playlist 1</span>
+            </li>
+            <li>
+              <span>Playlist 2</span>
+            </li>
+            <li>
+              <span>Playlist 3</span>
+            </li>
+            <li>
+              <span>Playlist 4</span>
+            </li>
           </ul>
         </div>
       </div>

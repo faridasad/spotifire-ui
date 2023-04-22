@@ -1,4 +1,5 @@
 import Icon from "../Icons";
+import Player from "./Player";
 import "./footer.scss";
 
 function Footer() {
@@ -41,7 +42,9 @@ function Footer() {
               </button>
             </div>
           </div>
-          <div className="audio-slider">Slider</div>
+          <div className="audio-player">
+            <Player />
+          </div>
         </div>
         <div className="footer-wrapper__right">
           <button role="switch">

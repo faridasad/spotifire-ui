@@ -4,7 +4,7 @@ import "./styles/App.scss";
 // Components
 import Navbar from "./components/Navbar";
 import Topbar from "./components/Topbar";
-import Bottombar from "./components/Bottombar";
+import Bottombar from "./components/Footer";
 
 // Pages
 import Home from "./pages/Home";

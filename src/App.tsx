@@ -4,7 +4,7 @@ import "./styles/App.scss";
 // Components
 import Navbar from "./components/Navbar";
 import Topbar from "./components/Topbar";
-import Bottombar from "./components/Footer";
+import Footer from "./components/Footer";
 
 // Pages
 import Home from "./pages/Home";
@@ -26,7 +26,7 @@ function App() {
             </main>
           </div>
         </div>
-        <Bottombar />
+        <Footer />
       </div>
     );
   };

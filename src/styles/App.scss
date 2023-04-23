@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  font-family: 'Circular Std';
+  font-family: "Circular Std";
 
   .content {
     width: 100%;
@@ -18,7 +18,7 @@
   > .top {
     height: 100%;
     display: flex;
-    background: linear-gradient(to top, #222222 50%, rgba(34, 34, 34, .9) 100%);
+    background: #222222;
 
     main {
       height: 100%;

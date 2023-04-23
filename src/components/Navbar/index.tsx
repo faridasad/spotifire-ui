@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav>
+    <nav className="sidebar-nav">
       <div className="logo-con">
         <NavLink to="/" className="brand-logo">
           <Icon name="logo" size={131} />
@@ -24,7 +24,7 @@ function Navbar() {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/collection">
+          <NavLink to="/collection/playlists">
             <Icon name="library" size={24} />
             <span>Your Library</span>
           </NavLink>

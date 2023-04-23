@@ -1,33 +1,33 @@
 import Icon from "../Icons";
 import "./navbar.scss";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
     <nav>
       <div className="logo-con">
-        <Link to="/" className="brand-logo">
+        <NavLink to="/" className="brand-logo">
           <Icon name="logo" size={131} />
-        </Link>
+        </NavLink>
       </div>
       <ul>
         <li>
-          <Link to="/">
+          <NavLink to="/">
             <Icon name="home" size={24} />
             <span>Home</span>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/search">
+          <NavLink to="/search">
             <Icon name="search" size={24} />
             <span>Search</span>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/collection">
+          <NavLink to="/collection">
             <Icon name="library" size={24} />
             <span>Your Library</span>
-          </Link>
+          </NavLink>
         </li>
       </ul>
 
@@ -93,10 +93,10 @@ function Navbar() {
         </div>
       </div>
       <div className="install-app">
-        <Link to="/download">
+        <NavLink to="/download">
           <Icon name="download" size={24} />
           <span>Install App</span>
-        </Link>
+        </NavLink>
       </div>
     </nav>
   );

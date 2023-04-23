@@ -14,6 +14,7 @@ import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Collection from "./pages/Collection";
 import Download from "./pages/Download";
+import NotFound from "./pages/NotFound";
 
 // Router
 import {
@@ -21,24 +22,28 @@ import {
   RouterProvider,
   Outlet,
   useLocation,
+  Navigate,
 } from "react-router-dom";
 
 const topbarComponents = new Map([
-  ["/search", <SearchBar />],
-  ["/collection", <Filters />],
+  ["search", <SearchBar />],
+  ["collection", <Filters />],
 ]);
 
 function App() {
   const Layout = () => {
     const location = useLocation();
+
+    if(location.pathname === "/collection") return <Navigate to="collection/playlists" replace/>
+
     return (
       <div className="app">
         <div className="top">
           <Navbar />
           <div className="content">
             <Topbar>
-              {topbarComponents.get(location.pathname) !== null &&
-                topbarComponents.get(location.pathname)}
+              {topbarComponents.get(location.pathname.split("/")[1]) !== null &&
+                topbarComponents.get(location.pathname.split("/")[1])}
             </Topbar>
             <main>
               <Outlet />
@@ -57,8 +62,12 @@ function App() {
       children: [
         { path: "/", element: <Home /> },
         { path: "/search", element: <Search /> },
-        { path: "/collection", element: <Collection /> },
+        { path: `/collection/playlists`, element: <Collection /> },
+        { path: `/collection/podcasts`, element: <Collection /> },
+        { path: `/collection/artists`, element: <Collection /> },
+        { path: `/collection/albums`, element: <Collection /> },
         { path: "/download", element: <Download /> },
+        { path: "*", element: <NotFound />}
       ],
     },
   ]);

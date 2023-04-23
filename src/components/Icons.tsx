@@ -4,6 +4,11 @@ type CustomIconProps = {
   size: number;
 };
 
+type IconProps = {
+  name: string;
+  size?: number;
+};
+
 const LogoIcon = ({ size }: CustomIconProps) => {
   return (
     <svg viewBox="0 0 1134 340" width={size} height={size / 3.275}>
@@ -244,6 +249,54 @@ const VolumeIcon = ({ size }: CustomIconProps) => {
   );
 };
 
+const NavigationPrevIcon = ({ size }: CustomIconProps) => {
+  return (
+    <svg
+      role="img"
+      height={size}
+      width={size}
+      aria-hidden="true"
+      viewBox="0 0 16 16"
+      data-encore-id="icon"
+      fill="currentColor"
+    >
+      <path d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"></path>
+    </svg>
+  );
+};
+
+const NavigationNextIcon = ({ size }: CustomIconProps) => {
+  return (
+    <svg
+      role="img"
+      height={size}
+      width={size}
+      aria-hidden="true"
+      viewBox="0 0 16 16"
+      data-encore-id="icon"
+      fill="currentColor"
+    >
+      <path d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"></path>
+    </svg>
+  );
+};
+
+const DropDownIcon = ({ size }: CustomIconProps) => {
+  return (
+    <svg
+      role="img"
+      height={size}
+      width={size}
+      aria-hidden="true"
+      viewBox="0 0 16 16"
+      data-encore-id="icon"
+      fill="currentColor"
+    >
+      <path d="m14 6-6 6-6-6h12z"></path>
+    </svg>
+  );
+};
+
 const icons: Record<string, FunctionComponent<CustomIconProps>> = {
   home: HomeIcon,
   logo: LogoIcon,
@@ -260,11 +313,9 @@ const icons: Record<string, FunctionComponent<CustomIconProps>> = {
   repeat: RepeatIcon,
   queue: QueueIcon,
   volume: VolumeIcon,
-};
-
-type IconProps = {
-  name: string;
-  size?: number;
+  navigationPrev: NavigationPrevIcon,
+  navigationNext: NavigationNextIcon,
+  dropDown: DropDownIcon,
 };
 
 const Icon = ({ name, size = 24 }: IconProps) => {

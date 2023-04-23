@@ -1,9 +1,10 @@
-import './collection.scss'
+import "./collection.scss";
+import { useLocation } from "react-router-dom";
 
 function Collection() {
-  return (
-    <div className="collection">collection</div>
-  )
+  const location = useLocation();
+
+  return <div className="collection">{location.pathname.split("/")[2]}</div>;
 }
 
-export default Collection
+export default Collection;

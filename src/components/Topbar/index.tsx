@@ -1,7 +1,8 @@
+import { ReactNode } from "react";
 import Icon from "../Icons";
 import "./topbar.scss";
 
-function Topbar() {
+function Topbar({ children }: { children?: ReactNode }) {
   return (
     <header>
       <div className="navigation-arrows">
@@ -12,6 +13,7 @@ function Topbar() {
           <Icon name="navigationNext" size={16} />
         </button>
       </div>
+      <div className="child-comp">{children !== null && children}</div>
       <button className="user-profile">
         <img src="https://i.scdn.co/image/ab6775700000ee859e36edc9c5e37682327654e2" />
         <span>fared.wav</span>

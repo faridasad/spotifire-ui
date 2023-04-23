@@ -1,6 +1,10 @@
+import './search.scss'
+
 function Search() {
   return (
-    <div>Search</div>
+    <div className="search">
+      search
+    </div>
   )
 }
 

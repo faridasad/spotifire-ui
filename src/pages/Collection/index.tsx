@@ -2,7 +2,7 @@ import './collection.scss'
 
 function Collection() {
   return (
-    <div>Collection</div>
+    <div className="collection">collection</div>
   )
 }
 

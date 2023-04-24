@@ -2,6 +2,9 @@
 
 footer {
   background-color: $background-base;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 
   .footer-wrapper {
     height: 90px;

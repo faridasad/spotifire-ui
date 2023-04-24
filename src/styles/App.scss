@@ -21,7 +21,8 @@
     background: #222222;
 
     main {
-      height: 100%;
+      height: calc(100% - 154px);
+      overflow: auto;
     }
   }
 }

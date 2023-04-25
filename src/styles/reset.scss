@@ -26,6 +26,8 @@ html:focus-within {
 html,
 body, #root {
   height: 100%;
+
+  overscroll-behavior-y: none;
 }
 
 /* Set core body defaults */

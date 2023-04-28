@@ -38,6 +38,28 @@ header {
     margin-left: 1rem;
   }
 
+  .login-button {
+    height: 48px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 500px;
+    background-color: $essential-base;
+
+    span {
+      color: #282828;
+      padding: 8px 32px;
+    }
+
+
+    &:hover {
+      background-color: #f6f6f6;
+      scale: 1.03;
+      font-weight: bold;
+    }
+  }
+
   .profile-con {
     position: relative;
 

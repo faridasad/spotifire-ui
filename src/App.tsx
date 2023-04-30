@@ -30,6 +30,8 @@ const topbarComponents = new Map([
   ["collection", <Filters />],
 ]);
 
+const code = new URLSearchParams(window.location.search).get("code");
+
 function App() {
   const Layout = () => {
     const location = useLocation();
@@ -41,7 +43,7 @@ function App() {
         <div className="top">
           <Navbar />
           <div className="content">
-            <Topbar>
+            <Topbar code={code}>
               {topbarComponents.get(location.pathname.split("/")[1]) !== null &&
                 topbarComponents.get(location.pathname.split("/")[1])}
             </Topbar>

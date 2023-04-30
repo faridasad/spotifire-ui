@@ -1,41 +1,49 @@
 import { ReactNode, useEffect } from "react";
 import useAuthStore from "../../store/auth";
-import { shallow } from "zustand/shallow";
 import { Menu } from "@headlessui/react";
 import Icon from "../Icons";
 import "./topbar.scss";
+import axios from "axios";
 
-const code = new URLSearchParams(window.location.search).get("code");
 const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${
   import.meta.env.VITE_CLIENT_ID
 }&response_type=code&redirect_uri=${
   import.meta.env.VITE_REDIRECT_URI
 }&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state`;
 
-function Topbar({ children }: { children?: ReactNode }) {
-  const [accessToken, login] = useAuthStore(
-    (state) => [
-      state.accessToken,
-      state.login,
-    ],
-    shallow
-  );
+function Topbar({children, code}: {children?: ReactNode, code?: string | null}) {
+  const authStore = useAuthStore();
 
   useEffect(() => {
-    if (code === null) {
-      console.log("code is null");
-      return;
-    }
-    try {
-      login(code);
-      console.log("logged in");
-      window.history.pushState({}, "", "/");
-    } catch (err) {
-      window.location.href = "/";
-      console.log("error logging in");
-    }
-  }, [login]);
+    if (code === null || authStore.accessToken !== null) return;
 
+    if (code && authStore.accessToken === null) {
+      try {
+        authStore.login(code);
+        window.history.pushState({}, "", "/");
+      } catch (err) {
+        window.location.href = "/";
+      }
+    }
+  }, [code, authStore]);
+
+  useEffect(() => {
+    if (!authStore.refreshToken || !authStore.expiresIn) return;
+    const interval = setInterval(() => {
+      axios
+        .post("http://localhost:5000/refresh", {
+          refreshToken: authStore.refreshToken,
+        })
+        .then((res) => {
+          authStore.updateAccessToken(res.data.accessToken);
+        })
+        .catch(() => {
+          window.location.href = "/";
+        });
+    }, (authStore.expiresIn - 60) * 1000);
+
+    return () => clearInterval(interval);
+  }, [authStore]);
 
   return (
     <header>
@@ -48,7 +56,7 @@ function Topbar({ children }: { children?: ReactNode }) {
         </button>
       </div>
       <div className="child-comp">{children !== null && children}</div>
-      {accessToken === null ? (
+      {authStore.accessToken === null ? (
         <a className="login-button" href={AUTH_URL}>
           <span>Login</span>
         </a>
@@ -81,7 +89,14 @@ function Topbar({ children }: { children?: ReactNode }) {
             <span className="menu-divider"></span>
             <Menu.Item>
               {({ active }) => (
-                <a className={`${active && "active"}`}>Log Out</a>
+                <a
+                  className={`${active && "active"}`}
+                  onClick={() => {
+                    authStore.clear();
+                  }}
+                >
+                  Log Out
+                </a>
               )}
             </Menu.Item>
           </Menu.Items>
